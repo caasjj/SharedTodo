@@ -1,0 +1,68 @@
+
+li {
+    list-style: none;
+}
+
+#todo-list {
+    margin-top: 60px;
+    margin-bottom: 75px;
+}
+
+
+tr.todo-item textarea,
+tr.todo-item span.todo-delete,
+tr.todo-item.edit input[type="checkbox"],
+tr.todo-item.edit span:not(.todo-delete) {
+    display: none;
+    border: none;
+}
+tr.todo-item.edit textarea,
+tr.todo-item.edit span.todo-delete,
+tr.todo-item input[type="checkbox"],
+tr.todo-item span:not(.todo-delete) {
+    display: inline-block;
+    border: none;
+}
+
+tr.todo-item span.done {
+    text-decoration: line-through;
+    color: lightgray;
+}
+
+.todo-delete {
+    color: red;
+}
+
+.todo-add {
+    color: green;
+}
+
+.navbar-fixed-bottom {
+    min-height: 25px !important;
+}
+
+.glyphicon {
+    zoom: 1.5;
+}
+
+#nav-home{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 3px;
+    zoom: 2;
+}
+
+#nav-delete-items{
+    float: right;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 3px;
+    zoom: 2;
+}
+
+#nav-title {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}

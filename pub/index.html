@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+    <title>Zahra Todo</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- JavaScript Libraries -->
+    <script type="text/javascript" src="../lib/jquery.js"></script>
+    <script type="text/javascript" src="../lib/underscore.js"></script>
+    <script type="text/javascript" src="../lib/backbone-dev.js"></script>
+    <script type="text/javascript" src="../lib/handlebars.js"></script>
+    <script type="text/javascript" src="../lib/firebase.js"></script>
+    <script type="text/javascript" src="../lib/backbone-firebase.js"></script>
+    <script type="text/javascript" src="../lib/firebase-simple-login.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap.js"></script>
+    <script type="text/javascript">
+        $( function () {
+            app.login();
+        } );
+    </script>
+</head>
+
+<body>
+
+<!-- Main Container -->
+<div id="main" class="container">
+    <div id="main-display" class="row">
+    </div>
+    <div id="main-input" class="row">
+    </div>
+</div>
+
+<!-- HANDLEBARS TEMPLATES -->
+<!-- Login form template -->
+<script id="login-form-template" type="text/x-handlebars-template">
+    <form id="login-form" class="login" autocomplete="on" method="get" action="">
+        <input id="login-form-get-username" type="text" placeholder="username">
+        <input id="login-form-get-password" type="password" placeholder="password">
+        <input type="submit" style="visibility:hidden">
+    </form>
+</script>
+
+<!-- Todo List template -->
+<script id="todo-list-template" type="text/x-handlebars-template">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <h3 id="nav-title" class="col-xs-6">
+            {{name}} <span class="badge">{{count}}</span>
+        </h3>
+        <a href="#"><span id="nav-home" class="glyphicon glyphicon-home"></span></a>
+        <span id="nav-delete-items" class="glyphicon glyphicon-trash"></span>
+    </nav>
+    <div>
+        <table id="todo-list" class="table table-striped"></table>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <input id="nav-new-item" class="col-xs-12" type="text" data-id="todo-title" placeholder="New Item">
+    </nav>
+</script>
+
+<!-- Todo item template -->
+<script id="todo-item-template" type="text/x-handlebars-template">
+    <td class="col-xs-1">
+        <input type="checkbox" {{#done}}checked{{/done}}
+    </td>
+    <td class="col-xs-11">
+        <span class="col-xs-11 text-left {{#done}}done{{/done}}">{{title}}</span>
+        <textarea class="col-xs-9" type="text" data-id="todo-title">{{title}}</textarea>
+        <span class="col-xs-2 glyphicon glyphicon-remove-circle todo-delete"></span>
+    </td>
+</script>
+
+<!-- Scripts -->
+<script type="text/javascript" src="../src/models/todoItem.js"></script>
+<script type="text/javascript" src="../src/models/todoList.js"></script>
+<script type="text/javascript" src="../src/models/loginAuth.js"></script>
+<script type="text/javascript" src="../src/views/todoView.js"></script>
+<script type="text/javascript" src="../src/views/todoListView.js"></script>
+<script type="text/javascript" src="../src/views/loginView.js"></script>
+<script type="text/javascript" src="../src/app.js"></script>
+</body>
+</html>
