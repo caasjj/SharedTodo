@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../lib/bootstrap.js"></script>
     <script type="text/javascript">
         $( function () {
-            app.login();
+            app.run();
         } );
     </script>
 </head>
@@ -52,11 +52,11 @@
 <!-- Todo List template -->
 <script id="todo-list-template" type="text/x-handlebars-template">
     <nav class="navbar navbar-default navbar-fixed-top">
-        <h3 id="nav-title" class="col-xs-6">
+        <h3 id="nav-title" class="col-xs-5">
             {{name}} <span class="badge">{{count}}</span>
         </h3>
         <a href="#"><span id="nav-home" class="glyphicon glyphicon-home"></span></a>
-        <span id="nav-delete-items" class="glyphicon glyphicon-trash"></span>
+        <a href="#"><span id="nav-delete-items" class="glyphicon glyphicon-trash"></span></a>
     </nav>
     <div>
         <table id="todo-list" class="table table-striped"></table>
@@ -68,8 +68,8 @@
 
 <!-- Todo item template -->
 <script id="todo-item-template" type="text/x-handlebars-template">
-    <td class="col-xs-1">
-        <input type="checkbox" {{#done}}checked{{/done}}
+    <td  class="col-xs-1">
+        <input id="item-done-toggle" type="checkbox" {{#done}}checked{{/done}}
     </td>
     <td class="col-xs-11">
         <span class="col-xs-11 text-left {{#done}}done{{/done}}">{{title}}</span>

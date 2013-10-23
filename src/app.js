@@ -27,25 +27,31 @@ var app = new ( Backbone.View.extend( {
 
     firebase:new Firebase( "https://xq9zmp23.firebaseio.com/" ),
 
-    login :function () {
+    run   :function () {
         this.models.loginAuth = new LoginAuth( {
             firebase:this.firebase
         } );
-        if ( !window.localStorage.username) {
-        this.views.loginForm = new LoginView( {model:this.models.loginAuth} );
-        this.views.loginForm.setElement( $( '#main-display' ) ).render();
+        this.listenTo( this.models.loginAuth, 'AuthUserIsLoggedOut', this.login );
+        this.listenTo( this.models.loginAuth, 'AuthUserIsLoggedIn', this.start );
+        this.models.loginAuth.authResult()
+    },
+    login :function () {
+        if ( !window.localStorage.username ) {
+            this.views.loginForm = new LoginView( {model:this.models.loginAuth} );
+            this.views.loginForm.setElement( $( '#main-display' ) ).render();
         } else {
             app.models.loginAuth.authenticate( window.localStorage.username, window.localStorage.password );
         }
-        this.listenTo( this.models.loginAuth, 'AuthUserIsLoggedIn', this.start );
     },
     logout:function () {
         this.models.loginAuth.auth.logout();
-//        this.login();
     },
-    start :function () {
+
+    start:function () {
+
+        this.stopListening( this.models.loginAuth, 'AuthUserIsLoggedIn' );
         this.models.todoList = new TodoList( null, {firebase:this.firebase,
-                name                                        :'Shop'} );
+            name                                            :'Shop'} );
         this.views.todoListView = new TodoListView( {
             collection:this.models.todoList,
             el        :$( '#main-display' )

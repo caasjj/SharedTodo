@@ -29,6 +29,12 @@ tr.todo-item span.done {
     color: lightgray;
 }
 
+#item-done-toggle {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+}
+
 .todo-delete {
     color: red;
 }
@@ -46,21 +52,21 @@ tr.todo-item span.done {
 }
 
 #nav-home{
-    display: inline-block;
+
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 3px;
     zoom: 2;
 }
 
-#nav-delete-items{
+#nav-logout, #nav-delete-items {
     float: right;
-    display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-top: 3px;
-    zoom: 2;
+    zoom: 1.75;
 }
+
 
 #nav-title {
     margin-top: 10px;

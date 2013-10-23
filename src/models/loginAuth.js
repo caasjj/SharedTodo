@@ -10,7 +10,7 @@ LoginAuth = Backbone.Model.extend( {
 
     initialize:function ( options ) {
         this.on( 'all', function () {
-            console.log( 'EVENT: loginAuth. Arguments: ', arguments );
+            console.log( 'EVENT: loginAuth. Arguments: ', arguments, this );
 		} );
 
 		this.auth = new FirebaseSimpleLogin( options.firebase, _.bind( this.authResult, this ) );

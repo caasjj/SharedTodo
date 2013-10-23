@@ -12,7 +12,7 @@ TodoView = Backbone.View.extend( {
 
     events:{
         'click span'                  :'editItem',
-        'keypress textarea'           :'doneEditing',
+        'keypress textArea'           :'doneEditing',
         'click input[type="checkbox"]':'completeItem',
         'click .todo-delete'          :'deleteItem'
     },

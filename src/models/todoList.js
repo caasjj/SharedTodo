@@ -11,18 +11,12 @@ TodoList = Backbone.Firebase.Collection.extend( {
         this.on( 'all', function () {
             console.log( 'EVENT: todoList. Arguments: ', arguments );
         } );
-/*        this.on( 'change', this.updateCount() );
-        this.on('add', this.updateCount());
-        this.on('remove', this.updateCount() );*/
 
         this.firebase = options.firebase;
         this.name = options.name ;
         this.count = 0;
     },
 
-    parse: function() {
-        console.log('Got Parsed!');
-    },
     completed: function() {
        return this.models.filter( function(item) {
             return !!item.get('done');
