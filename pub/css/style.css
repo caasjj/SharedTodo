@@ -4,10 +4,14 @@ li {
 }
 
 #todo-list {
-    margin-top: 60px;
+    margin-top: 50px;
     margin-bottom: 75px;
 }
 
+td {
+    font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+    font-size: 16px;
+}
 
 tr.todo-item textarea,
 tr.todo-item span.todo-delete,
@@ -30,8 +34,8 @@ tr.todo-item span.done {
 }
 
 #item-done-toggle {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     margin-left: 10px;
 }
 
@@ -53,10 +57,10 @@ tr.todo-item span.done {
 
 #nav-home{
 
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-top: 3px;
-    zoom: 2;
+    zoom: 1.75;
 }
 
 #nav-logout, #nav-delete-items {
@@ -67,8 +71,13 @@ tr.todo-item span.done {
     zoom: 1.75;
 }
 
+#nav-count {
+    position: relative;
+    top: -3px;
+}
 
 #nav-title {
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+    font-family: cursive;
 }

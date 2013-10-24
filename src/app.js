@@ -49,9 +49,9 @@ var app = new ( Backbone.View.extend( {
 
     start:function () {
 
-        this.stopListening( this.models.loginAuth, 'AuthUserIsLoggedIn' );
+        this.stopListening( this.models.loginAuth );
         this.models.todoList = new TodoList( null, {firebase:this.firebase,
-            name                                            :'Shop'} );
+            name                                            :'Shopping List'} );
         this.views.todoListView = new TodoListView( {
             collection:this.models.todoList,
             el        :$( '#main-display' )

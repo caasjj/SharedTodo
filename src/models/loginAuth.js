@@ -8,6 +8,10 @@ LoginAuth = Backbone.Model.extend( {
 
     auth: {},
 
+    username: '',
+
+    password: '',
+
     initialize:function ( options ) {
         this.on( 'all', function () {
             console.log( 'EVENT: loginAuth. Arguments: ', arguments, this );
@@ -17,7 +21,8 @@ LoginAuth = Backbone.Model.extend( {
 	},
 	authenticate:function ( username, password ) {
 		var emailRegExp = new RegExp( "@", "gi" );
-
+        this.username = username;
+        this.password = password;
         console.log( 'loginAuth authenticating with firebase. Credentials: ', username, password );
 
 		if ( !emailRegExp.test( username ) ) {
@@ -32,6 +37,8 @@ LoginAuth = Backbone.Model.extend( {
 	},
 	authResult:function ( error, user ) {
 		if (!error && user) {
+            window.localStorage.username = this.username;
+            window.localStorage.password = this.password;
 			console.log('User ', user, ' is logged in!');
 			this.trigger('AuthUserIsLoggedIn');
 		} else {

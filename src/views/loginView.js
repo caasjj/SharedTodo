@@ -13,8 +13,6 @@ LoginView = Backbone.View.extend( {
 	authenticate:function (event) {
 		console.log( 'Authenticating with Firebase Server' );
 		this.model.authenticate( $('#login-form-get-username' ).val(), $('#login-form-get-password' ).val());
-        window.localStorage.username = $('#login-form-get-username' ).val();
-        window.localStorage.password = $('#login-form-get-password' ).val()
 		event.preventDefault();
 	},
 

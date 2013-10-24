@@ -23,9 +23,9 @@
     <script type="text/javascript" src="../lib/firebase-simple-login.js"></script>
     <script type="text/javascript" src="../lib/bootstrap.js"></script>
     <script type="text/javascript">
-        $( function () {
+        $(function () {
             app.run();
-        } );
+        });
     </script>
 </head>
 
@@ -49,18 +49,38 @@
     </form>
 </script>
 
-<!-- Todo List template -->
-<script id="todo-list-template" type="text/x-handlebars-template">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <h3 id="nav-title" class="col-xs-5">
-            {{name}} <span class="badge">{{count}}</span>
+<!-- Tasklist Navbar template -->
+<script id="tasklist-nav-template" type="text/x-handlebars-template">
+    <nav id="tasklist-nav-top" class="navbar navbar-default navbar-fixed-top">
+        <h3 id="nav-title" class="col-xs-8">
+            {{name}} <span id="nav-count" class="badge">{{length}}</span>
+        </h3>
+        <a href="#"><span id="nav-delete-items" class="glyphicon glyphicon-trash"></span></a>
+    </nav>
+</script>
+
+<!-- Task list template -->
+<script id="tasklist-template" type="text/x-handlebars-template">
+    <table id="tasklist" class="table table-striped"></table>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <input id="nav-new-task" class="col-xs-12" type="text" data-id="task-title" placeholder="New Task">
+    </nav>
+</script>
+
+<!-- Todo Navbar template -->
+<script id="todo-nav-template" type="text/x-handlebars-template">
+    <nav id="todo-nav-top" class="navbar navbar-default navbar-fixed-top">
+        <h3 id="nav-title" class="col-xs-8">
+            {{name}} <span id="nav-count" class="badge">{{length}}</span>
         </h3>
         <a href="#"><span id="nav-home" class="glyphicon glyphicon-home"></span></a>
         <a href="#"><span id="nav-delete-items" class="glyphicon glyphicon-trash"></span></a>
     </nav>
-    <div>
-        <table id="todo-list" class="table table-striped"></table>
-    </div>
+</script>
+
+<!-- Todo List template -->
+<script id="todo-list-template" type="text/x-handlebars-template">
+    <table id="todo-list" class="table table-striped"></table>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <input id="nav-new-item" class="col-xs-12" type="text" data-id="todo-title" placeholder="New Item">
     </nav>
@@ -68,7 +88,7 @@
 
 <!-- Todo item template -->
 <script id="todo-item-template" type="text/x-handlebars-template">
-    <td  class="col-xs-1">
+    <td class="col-xs-1">
         <input id="item-done-toggle" type="checkbox" {{#done}}checked{{/done}}
     </td>
     <td class="col-xs-11">
